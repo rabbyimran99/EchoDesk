@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agency Listings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .agency {
+            background: #fff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        .agency:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .details-container {
+            display: none;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Agency Listings</h2>
+        <div id="agencyList">
+            <div class="agency" onclick="showDetails('agency1')" style="background-image: url('Echodesk-repo-main/army.jpeg');">
+                <h3>Defense Force</h3>
+                <p>Rating: ⭐⭐⭐⭐⭐</p>
+                <p>Completed Cases: 250</p>
+                <p>Success Rate: 98%</p>
+            </div>
+            <div class="agency" onclick="showDetails('agency2')" style="background-image: url('Echodesk-repo-main/spy.jpeg');">
+                <h3>Private Detective Agency</h3>
+                <p>Rating: ⭐⭐⭐⭐</p>
+                <p>Completed Cases: 180</p>
+                <p>Success Rate: 90%</p>
+            </div>
+            <div class="agency" onclick="showDetails('agency3')" style="background-image: url('Echodesk-repo-main/law.jpeg');">
+                <h3>Government Lawyer Services</h3>
+                <p>Rating: ⭐⭐⭐⭐⭐</p>
+                <p>Completed Cases: 300</p>
+                <p>Success Rate: 95%</p>
+            </div>
+            <div class="agency" onclick="showDetails('agency4')" style="background-image: url('Echodesk-repo-main/se.jpeg');">
+                <h3>Cyber Security Agency</h3>
+                <p>Rating: ⭐⭐⭐⭐⭐</p>
+                <p>Completed Cases: 220</p>
+                <p>Success Rate: 96%</p>
+            </div>
+            <div class="agency" onclick="showDetails('agency5')" style="background-image: url('Echodesk-repo-main/forensics.jpeg');">
+                <h3>Forensic Investigation Team</h3>
+                <p>Rating: ⭐⭐⭐⭐</p>
+                <p>Completed Cases: 150</p>
+                <p>Success Rate: 88%</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container details-container" id="agencyDetails">
+        <h2 id="agencyName"></h2>
+        <p id="agencyInfo"></p>
+        <button onclick="applyNow()">Apply Now</button>
+    </div>
+
+    <script>
+        function showDetails(agency) {
+            var details = {
+                agency1: {
+                    name: "Defense Force",
+                    info: "Specialized in national security and defense operations. Highly trained professionals with top success rates."
+                },
+                agency2: {
+                    name: "Private Detective Agency",
+                    info: "Experts in private investigations, surveillance, and background checks. Trusted by clients worldwide."
+                },
+                agency3: {
+                    name: "Government Lawyer Services",
+                    info: "Experienced legal professionals handling government and civil cases with a strong success record."
+                },
+                agency4: {
+                    name: "Cyber Security Agency",
+                    info: "Protecting digital infrastructure, investigating cyber threats, and ensuring national security online."
+                },
+                agency5: {
+                    name: "Forensic Investigation Team",
+                    info: "Experts in crime scene analysis, evidence gathering, and forensic examinations."
+                }
+            };
+            
+            document.getElementById("agencyName").innerText = details[agency].name;
+            document.getElementById("agencyInfo").innerText = details[agency].info;
+            document.getElementById("agencyDetails").style.display = "block";
+        }
+        
+        function applyNow() {
+            alert("Application process started. Redirecting to application form...");
+        }
+    </script>
+</body>
+</html>

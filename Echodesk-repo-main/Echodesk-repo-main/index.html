@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echodesk</title>
+    <style>
+        /* Header Container */
+.scroll-container {
+    display: flex;
+    /* Aligns items horizontally */
+    align-items: center;
+    /* Vertically centers items */
+    gap: 20px;
+    /* Adds space between items */
+    overflow-x: auto;
+    /* Enables horizontal scrolling */
+    padding: 10px 20px;
+    /* Adds padding for spacing */
+    background-color: #f8f9fa;
+    /* Light background */
+    white-space: nowrap;
+    /* Prevents content wrapping */
+}
+
+/* Logo Styling */
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Header Text */
+h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Social Icons */
+/* Social Icons Container */
+.social-icons {
+    position: absolute;
+    /* Allows precise placement */
+    top: 10px;
+    /* Distance from the top */
+    right: 10px;
+    /* Distance from the right */
+    display: flex;
+    /* Aligns items horizontally */
+    align-items: center;
+    /* Vertically aligns items */
+    gap: 15px;
+    /* Adds space between icons and button */
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Semi-transparent background */
+
+    border-radius: 8px;
+    /* Rounds the container */
+
+    z-index: 10;
+    /* Ensures it stays on top of other content */
+
+
+
+}
+
+/* Social Icons */
+.social-icons a img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    /* Makes icons circular */
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a img:hover {
+    transform: scale(1.1);
+    /* Slight zoom on hover */
+}
+
+/* Contact Us Button */
+.social-icons .btn {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.social-icons .btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.social-icons .btn:active {
+    transform: scale(0.98);
+    background-color: #004085;
+}
+
+
+/*...main...*/
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    gap: 2rem;
+}
+
+.content {
+    max-width: 50%;
+}
+
+.content h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.content p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.content input[type="email"] {
+    width: 100%;
+    max-width: 300px;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.content input[type="email"]:focus {
+    border-color: #007BFF;
+}
+
+.content button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.content button:hover {
+    background-color: #0056b3;
+}
+
+.image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .content {
+        max-width: 100%;
+    }
+
+    .image img {
+        margin-top: 1.5rem;
+    }
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .faq-title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .faq-item {
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+  }
+  .faq-question {
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .faq-answer {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #555;
+    display: none;
+  }
+  .faq-question:hover {
+    color: #007bff;
+  }
+  .faq-question .arrow {
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+  }
+  .faq-item.open .faq-answer {
+    display: block;
+  }
+  .faq-item.open .faq-question .arrow {
+    transform: rotate(180deg);
+  }
+
+  .location-container {
+    text-align: center;
+    padding: 40px 20px;
+  }
+  .location-container h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  .location-container p {
+    margin-bottom: 10px;
+    color: #666;
+    font-size: 1rem;
+  }
+  .location-container a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+  }
+  .location-container a:hover {
+    text-decoration: underline;
+  }
+  .map-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  iframe {
+    border: 0;
+    width: 100%;
+    max-width: 800px;
+    height: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+/* Style for the section */
+div {
+   text-align: center;      /* Centers the text */
+    margin: 20px 0;          /* Adds space between sections */
+}
+
+/* Style for the Heading (with class .join) */
+.join {
+    font-size: 2.5rem;       /* Larger font size */
+    font-weight: bold;       /* Makes the font bold */
+    margin-bottom: 20px;     /* Adds space below the heading */
+    color: #333;             /* Dark color for text */
+}
+
+/* Style for the Paragraph (with class .Be) */
+.Be {
+    font-size: 1.2rem;       /* Slightly larger text for better readability */
+    color: #555;             /* A softer gray color for the paragraph */
+    margin-bottom: 30px;     /* Adds space below the paragraph */
+    line-height: 1.6;        /* Increases line height for readability */
+    max-width: 700px;        /* Limits the width of the text */
+    margin-left: auto;
+    margin-right: auto;      /* Centers the paragraph */
+}
+
+/* Style for the Button */
+div button {
+    padding: 12px 30px;      /* Adds padding to the button */
+    font-size: 1rem;         /* Makes the font size readable */
+    font-weight: bold;       /* Makes the button text bold */
+    color: white;            /* White text color */
+    background-color: #007bff; /* Blue background color */
+    border: none;            /* Removes default border */
+    border-radius: 5px;      /* Rounded corners for the button */
+    cursor: pointer;        /* Shows pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+}
+
+/* Button Hover and Active States */
+div button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05);    /* Slight scale effect on hover */
+}
+
+div button:active {
+    background-color: #004085; /* Even darker blue on click */
+    transform: scale(0.98);    /* Shrinks button slightly on click */
+}
+
+  
+.footer {
+    background-color: #194785;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  .team {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .member {
+    text-align: center;
+    width: 150px;
+  }
+  
+  .member img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .member h3 {
+    margin: 10px 0;
+    font-size: 18px;
+  }
+  
+  .social-links a {
+    display: block;
+    margin: 5px 0;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .social-links a:hover {
+    text-decoration: underline;
+    color: #1e90ff;
+  }
+
+
+
+
+    </style>
+</head>
+
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="signup.html">Sign up</a>
+        <a href="login.html">Log in</a>
+        <a href="#">About</a>
+        <a href="Complaint.html">Complaint</a>
+        <a href="Agency.html">Agencies</a>
+        <a href="#">Contact</a>
+      </div>
+      
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+      
+      <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+      }
+      
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+      </script>
+   
+    <header class="scroll-container">
+        <img src="photo-1.jpeg.jpg" alt="Echodesk Logo" class="logo">
+        
+        <h1>Echodesk</h1>
+
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank">
+                <img src="facebook.1024x1024.png" alt="Facebook">
+            </a>
+            <a href="https://www.twitter.com" target="_blank">
+                <img src="x-circle-fill.1024x1024.png" alt="Twitter">
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="instagram-1.1024x1024.png" alt="Instagram">
+            </a>
+            <a href="login.html"><button class="btn">Log in</button></a>
+        </div>
+
+
+    </header>
+
+
+
+    <main>
+        <div class="container">
+            <div class="content">
+                <h1>Empowering Public Voices</h1>
+                <p>Join us in building a transparent platform for accountability and justice. Report grievances, share
+                    evidence, and collaborate with agencies.</p>
+                <input type="email" placeholder="Enter your e-mail address">
+                <button>Contact Us</button>
+            </div>
+            <div class="image">
+                <img src="photo-2.jpeg.jpg" alt="Change Neon Sign">
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="image">
+                <img src="complaint.jpg" alt="Change Neon Sign">
+            </div>
+            <div class="content">
+                <h1>User-Friendly Complaint Submission</h1>
+                <p>Echodesk provides a seamless platform for citizens to report their grievances conveniently. Users can
+                    submit complaints in various formats including text, audio, video, and images ensuring that all
+                    relevant evidence is captured effectively. This feature makes it easier for users to express their
+                    concerns while providing authorities with the necessary details for investigation. The interface is
+                    designed to be straightforward allowing individuals of all tech levels to engage without confusion
+                    or frustration</p>
+                <a href="Complaint.html"><button>Submit Your Complaint</button></a>
+            </div>
+        </div>
+
+
+
+        <div class="container">
+            <div class="content">
+                <h1>Transparent Agency Collaboration</h1>
+                <p>Our platform promotes transparency through direct collaboration between users and selected
+                    investigative agencies such as police units and private detectives. Each agency will have a
+                    dedicated interface where they can view detailed case files submitted by users along with multimedia
+                    evidence. This allows agencies not only to track progress but also communicate updates directly back
+                    to complainants thus fostering trust and accountability within the justice system.</p>
+
+                    <a href="Agency.html"><button>Agencies</button></a>
+            </div>
+            <div class="image">
+                <img src="photo 4.jpeg.jpg" alt="Change Neon Sign">
+            </div>
+        </div>
+
+
+
+
+
+        <div class="container">
+            <div class="image">
+                <img src="photo 5.jpeg.jpg" alt="Change Neon Sign">
+            </div>
+            <div class="content">
+                <h1>Verified News & Investigation Updates</h1>
+                <p>Echodesk ensures that its users remain informed by providing authentic news coverage related to
+                    ongoing investigations. Our team rigorously verifies user-generated content before publication
+                    creating an extensive repository of reliable information accessible on our portal. By offering
+                    real-time updates we aim to enhance public confidence in both media reporting and law enforcement
+                    processes ultimately contributing towards justice delivery.</p>
+                    <a href="newsportal-index.html">
+                <button>Newsweb</button></a>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="faq-container">
+            <div class="faq-title">Frequently Asked Questions</div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    What is Echodesk? <span class="arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Echodesk is a transparent platform designed to empower citizens to voice their grievances and
+                    concerns while facilitating proper investigation and resolution in collaboration with various
+                    agencies.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    How can I submit a complaint on Echodesk? <span class="arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Users can submit complaints through our user-friendly website by providing details of the issue
+                    along with multimedia evidence such as audio, video, or images.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Which types of complaints can I report on the platform? <span class="arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Echodesk allows you to report a wide range of complaints, including public issues, service-related
+                    concerns, and community matters.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    How does Echodesk ensure that my complaint is handled effectively? <span class="arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Echodesk collaborates with law enforcement agencies and investigative bodies. Once you submit your
+                    complaint, it will be analyzed by our team and forwarded to the chosen agency based on performance
+                    ratings.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Can I track the progress of my complaint submitted through Echodesk? <span class="arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Yes! Each submitted complaint generates a unique tracking ID which allows users to monitor its
+                    progress directly through their account.
+                </div>
+            </div>
+        </div>
+        <script>
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('click', () => {
+                    const faqItem = question.parentElement;
+                    faqItem.classList.toggle('open');
+                });
+            });
+        </script>
+
+
+
+
+        <div class="location-container">
+            <h2>Our Location</h2>
+            <p>Visit our shop</p>
+            <a href="https://goo.gl/maps/Chittagong" target="_blank">Chittagong, Bangladesh</a>
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.962431950797!2d91.82596231495986!3d22.33593388530837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd8962a86f7ed%3A0x9342a78a4c6abf32!2sChittagong%2C%20Bangladesh!5e0!3m2!1sen!2sbd!4v1619239075306!5m2!1sen!2sbd"
+                    allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+
+        <div style="background-color: rgb(238, 244, 247);">
+            <h1 class="join">Join the Movement for Justice</h1>
+            <p class="Be">Be part of a solution that empowers citizens to report grievances transparently and hold
+                authorities
+                accountable. Together, we can restore faith in our justice system.</p>
+            <button>Report Your Complaint Now</button>
+        </div>
+
+
+
+    </main>
+    <footer class="footer">
+        <div class="team">
+            <div class="member">
+                <img src="WhatsApp Image 2025-01-26 at 11.45.52_19918200.jpg" alt="Team Member 1">
+                <h3>Ebtesham Azam</h3>
+                <div class="social-links">
+                    <a href="https://facebook.com" target="_blank">Facebook</a>
+                    <a href="https://instagram.com" target="_blank">Instagram</a>
+                    <a href="https://twitter.com" target="_blank">Twitter</a>
+                </div>
+            </div>
+            <div class="member">
+                <img src="WhatsApp Image 2025-01-26 at 11.52.14_a578759b.jpg" alt="Team Member 2">
+                <h3>Imran Hossain</h3>
+                <div class="social-links">
+                    <a href="https://facebook.com" target="_blank">Facebook</a>
+                    <a href="https://instagram.com" target="_blank">Instagram</a>
+                    <a href="https://twitter.com" target="_blank">Twitter</a>
+                </div>
+            </div>
+            <div class="member">
+                <img src="WhatsApp Image 2025-01-26 at 11.45.53_e0883b93.jpg" alt="Team Member 3">
+                <h3>Towkir Akib</h3>
+                <div class="social-links">
+                    <a href="https://facebook.com" target="_blank">Facebook</a>
+                    <a href="https://instagram.com" target="_blank">Instagram</a>
+                    <a href="https://twitter.com" target="_blank">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+</body>
+
+</html>
